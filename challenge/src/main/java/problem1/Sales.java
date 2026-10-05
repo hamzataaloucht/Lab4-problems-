@@ -9,6 +9,8 @@ public class Sales {
 
         int sum = 0;
         int maxSale = -1;
+        int minSale = Integer.MAX_VALUE;
+        int minSaleId = 0;
         int maxSaleId = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -25,6 +27,10 @@ public class Sales {
                 maxSale = sales[i];
                 maxSaleId = i;
             }
+            if (sales[i] < minSale) {
+                minSale = sales[i];
+                minSaleId = i;
+            }
             sum += sales[i];
         }
 
@@ -33,5 +39,6 @@ public class Sales {
         System.out.println("\nTotal sales: " + sum);
         System.out.printf("The average sale: %.3f", averageSale);
         System.out.println("\nSalesperson " + maxSaleId + " had the highest sale with $" + maxSale + ".");
+        System.out.println("Salesperson " + minSaleId + " had the lowest sale with $" + minSale + ".");
     }
 }
