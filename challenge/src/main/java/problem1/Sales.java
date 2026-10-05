@@ -8,6 +8,8 @@ public class Sales {
         int[] sales = new int[SALESPEOPLE];
 
         int sum = 0;
+        int maxSale = -1;
+        int maxSaleId = 0;
         Scanner scan = new Scanner(System.in);
 
         for (int i = 0; i < sales.length; i++) {
@@ -19,6 +21,10 @@ public class Sales {
         System.out.println("--------------------");
         for (int i = 0; i < sales.length; i++) {
             System.out.println(" " + i + " " + sales[i]);
+            if (sales[i] > maxSale) {
+                maxSale = sales[i];
+                maxSaleId = i;
+            }
             sum += sales[i];
         }
 
@@ -26,5 +32,6 @@ public class Sales {
 
         System.out.println("\nTotal sales: " + sum);
         System.out.printf("The average sale: %.3f", averageSale);
+        System.out.println("\nSalesperson " + maxSaleId + " had the highest sale with $" + maxSale + ".");
     }
 }
