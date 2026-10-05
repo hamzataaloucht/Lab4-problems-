@@ -10,26 +10,26 @@ public class Sales {
         int sum = 0;
         int maxSale = -1;
         int minSale = Integer.MAX_VALUE;
-        int minSaleId = 0;
-        int maxSaleId = 0;
+        int minSaleId = 1;
+        int maxSaleId = 1;
         Scanner scan = new Scanner(System.in);
 
         for (int i = 0; i < sales.length; i++) {
-            System.out.print("Enter sales for salesperson " + i + ": ");
+            System.out.print("Enter sales for salesperson " + (i + 1) + ": ");
             sales[i] = scan.nextInt();
         }
 
         System.out.println("\nSalesperson Sales");
         System.out.println("--------------------");
         for (int i = 0; i < sales.length; i++) {
-            System.out.println(" " + i + " " + sales[i]);
+            System.out.println(" " + (i + 1) + " " + sales[i]);
             if (sales[i] > maxSale) {
                 maxSale = sales[i];
-                maxSaleId = i;
+                maxSaleId = i + 1;
             }
             if (sales[i] < minSale) {
                 minSale = sales[i];
-                minSaleId = i;
+                minSaleId = i + 1;
             }
             sum += sales[i];
         }
@@ -49,7 +49,7 @@ public class Sales {
         int numSalesperson = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] >= amount) {
-                System.out.println(i + " " + sales[i]);
+                System.out.println((i + 1) + " " + sales[i]);
                 numSalesperson++;
             }
         }
