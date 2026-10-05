@@ -40,5 +40,19 @@ public class Sales {
         System.out.printf("The average sale: %.3f", averageSale);
         System.out.println("\nSalesperson " + maxSaleId + " had the highest sale with $" + maxSale + ".");
         System.out.println("Salesperson " + minSaleId + " had the lowest sale with $" + minSale + ".");
+
+        int amount;
+        System.out.print("Enter an amount: ");
+        amount = scan.nextInt();
+
+        System.out.println("The salespersons who exceeded $" + amount + " in sales: ");
+        int numSalesperson = 0;
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] >= amount) {
+                System.out.println(i + " " + sales[i]);
+                numSalesperson++;
+            }
+        }
+        System.out.println("Their total number is: " + numSalesperson + ".");
     }
 }
