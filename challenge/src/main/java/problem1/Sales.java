@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 public class Sales {
     public static void main(String[] args) {
-        final int SALESPEOPLE = 5;
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Enter the number of sales people: ");
+        final int SALESPEOPLE = scan.nextInt();
+        System.out.println();
         int[] sales = new int[SALESPEOPLE];
 
         int sum = 0;
@@ -12,7 +16,6 @@ public class Sales {
         int minSale = Integer.MAX_VALUE;
         int minSaleId = 1;
         int maxSaleId = 1;
-        Scanner scan = new Scanner(System.in);
 
         for (int i = 0; i < sales.length; i++) {
             System.out.print("Enter sales for salesperson " + (i + 1) + ": ");
@@ -37,15 +40,15 @@ public class Sales {
         double averageSale = 1.0 * sum / sales.length;
 
         System.out.println("\nTotal sales: " + sum);
-        System.out.printf("The average sale: %.3f", averageSale);
-        System.out.println("\nSalesperson " + maxSaleId + " had the highest sale with $" + maxSale + ".");
-        System.out.println("Salesperson " + minSaleId + " had the lowest sale with $" + minSale + ".");
+        System.out.printf("\nThe average sale: %.3f", averageSale);
+        System.out.println("\n\nSalesperson " + maxSaleId + " had the highest sale with $" + maxSale + ".");
+        System.out.println("\nSalesperson " + minSaleId + " had the lowest sale with $" + minSale + ".");
 
         int amount;
-        System.out.print("Enter an amount: ");
+        System.out.print("\nEnter an amount: ");
         amount = scan.nextInt();
 
-        System.out.println("The salespersons who exceeded $" + amount + " in sales: ");
+        System.out.println("\nThe salespersons who exceeded $" + amount + " in sales: ");
         int numSalesperson = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] >= amount) {
@@ -53,6 +56,6 @@ public class Sales {
                 numSalesperson++;
             }
         }
-        System.out.println("Their total number is: " + numSalesperson + ".");
+        System.out.println("\nTheir total number is: " + numSalesperson + ".");
     }
 }
